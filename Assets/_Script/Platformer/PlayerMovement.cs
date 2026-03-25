@@ -27,5 +27,18 @@ public class PlayerMovement : MonoBehaviour
     {
         //transform.Translate(Vector3.right * speed * _newInput.inputX * Time.deltaTime);
         _rb.velocity = new Vector2(_newInput.inputX * speed, _rb.velocity.y);
+        Flip();
+    }
+
+    public void Flip()
+    {
+        if(_newInput.inputX > 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0); 
+        }
+        else if(_newInput.inputX < 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
     }
 }
